@@ -39,7 +39,7 @@ abstract class BaseActivity<VM : BaseViewModel<T>, VB : ViewBinding, T>(
                         }
                         is UiState.Error -> {
                             hideLoading()
-                            showError(state.message)
+                            showError()
                         }
                     }
                 }
@@ -50,6 +50,6 @@ abstract class BaseActivity<VM : BaseViewModel<T>, VB : ViewBinding, T>(
     open fun setupUI() {}
     open fun showLoading() {}
     open fun hideLoading() {}
-    open fun showError(message: String?) {}
+    open fun showError() {}
     open fun onSuccess(data: T) {}
 }

@@ -40,6 +40,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
+    kotlin {
+        jvmToolchain(17)
+    }
 }
 
 dependencies {
@@ -52,9 +56,6 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.activity.ktx)
-
-    implementation(libs.retrofit)
-    implementation(libs.converter.gson)
 
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)

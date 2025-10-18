@@ -10,6 +10,6 @@ open class BaseViewModel<T> : ViewModel() {
 
     protected fun setLoading() = _uiState.tryEmit(UiState.Loading)
     protected fun setSuccess(data: T) = _uiState.tryEmit(UiState.Success(data))
-    protected fun setError(message: String?) = _uiState.tryEmit(UiState.Error(message))
+    protected fun setError() = _uiState.tryEmit(UiState.Error)
 }
 
