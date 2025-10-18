@@ -1,22 +1,19 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
-    alias(libs.plugins.com.android.application)
+    alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
-    id("com.google.dagger.hilt.android")
-    id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.goomer.ps"
+    namespace = "com.goomer.designsystem"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.goomer.ps"
-        minSdk = 25
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = 24
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables.useSupportLibrary = true
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -27,28 +24,19 @@ android {
                 "proguard-rules.pro"
             )
         }
-        debug {
-            isMinifyEnabled = false
-        }
     }
-
-    buildFeatures {
-        viewBinding = true
-    }
-
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
+        }
     }
 }
 
 dependencies {
-    implementation(project(":data"))
-    implementation(project(":core:designSystem"))
-    implementation(project(":core:navigation"))
-
-    implementation(project(":feature:menu"))
-
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
@@ -57,13 +45,6 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
-    implementation(libs.navigation)
-
-    implementation(libs.retrofit)
-    implementation(libs.converter.gson)
-
-    implementation(libs.hilt)
-    kapt(libs.hilt.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
