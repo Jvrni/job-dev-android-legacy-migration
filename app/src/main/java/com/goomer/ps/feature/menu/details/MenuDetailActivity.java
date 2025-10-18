@@ -1,4 +1,4 @@
-package com.goomer.ps;
+package com.goomer.ps.feature.menu.details;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -6,9 +6,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import dagger.hilt.android.AndroidEntryPoint;
+import com.goomer.ps.R;
 
-@AndroidEntryPoint
 public class MenuDetailActivity extends AppCompatActivity {
 
     @Override
