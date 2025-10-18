@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
     id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -31,17 +32,13 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     kotlin {
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
-        }
+        jvmToolchain(17)
     }
 }
 
 dependencies {
     implementation(libs.core.ktx)
-    implementation(libs.retrofit)
-    implementation(libs.converter.gson)
-
+    implementation(libs.gson)
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
 
