@@ -3,7 +3,9 @@ include(":app")
 pluginManagement {
     repositories {
         google()
+
         mavenCentral()
         gradlePluginPortal()
     }
 }
+include(":data")
