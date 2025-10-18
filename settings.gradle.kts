@@ -9,3 +9,4 @@ pluginManagement {
     }
 }
 include(":data")
+include(":core:common")

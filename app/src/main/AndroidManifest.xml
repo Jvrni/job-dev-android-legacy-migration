@@ -10,12 +10,12 @@
         android:theme="@style/Theme.CadapioAndroid">
 
         <activity
-            android:name="com.goomer.ps.MenuDetailActivity"
+            android:name="com.goomer.ps.feature.menu.details.MenuDetailActivity"
             android:exported="false"
-            android:parentActivityName="com.goomer.ps.MenuListActivity" />
+            android:parentActivityName="com.goomer.ps.feature.menu.list.MenuListActivity" />
 
         <activity
-            android:name="com.goomer.ps.MenuListActivity"
+            android:name="com.goomer.ps.feature.menu.list.MenuListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

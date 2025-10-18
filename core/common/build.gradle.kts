@@ -1,22 +1,19 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
-    alias(libs.plugins.com.android.application)
+    alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
-    id("com.google.dagger.hilt.android")
-    id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.goomer.ps"
+    namespace = "com.goomer.common"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.goomer.ps"
-        minSdk = 25
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = 24
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables.useSupportLibrary = true
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -27,18 +24,14 @@ android {
                 "proguard-rules.pro"
             )
         }
-        debug {
-            isMinifyEnabled = false
-        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     buildFeatures {
         viewBinding = true
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlin {
@@ -47,18 +40,13 @@ android {
 }
 
 dependencies {
-    implementation(project(":data"))
-    implementation(project(":core:common"))
-
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
+
     implementation(libs.material)
     implementation(libs.appcompat)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.activity.ktx)
-
-    implementation(libs.hilt)
-    kapt(libs.hilt.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
