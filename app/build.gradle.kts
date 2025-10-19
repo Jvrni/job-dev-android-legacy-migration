@@ -53,9 +53,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.activity.ktx)
 
-    implementation(libs.retrofit)
-    implementation(libs.converter.gson)
-
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
 
