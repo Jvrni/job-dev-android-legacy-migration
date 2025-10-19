@@ -1,6 +1,7 @@
 [versions]
 activity-ktx = "1.11.0"
 agp = "8.12.3"
+navigation-fragment-ktx = "2.9.5"
 org-jetbrains-kotlin-android = "2.2.20"
 core-ktx = "1.17.0"
 junit = "4.13.2"
@@ -10,7 +11,6 @@ lifecycle-runtime-ktx = "2.9.4"
 org-jetbrains-kotlin-jvm = "2.2.20"
 appcompat = "1.7.1"
 material = "1.13.0"
-recyclerview = "1.4.0"
 hilt = "2.57.1"
 mockk = "1.14.6"
 coroutines = "1.10.2"
@@ -18,10 +18,15 @@ core-test = "2.2.0"
 constraint = "1.1.1"
 gson = "2.13.2"
 lifecycle = "2.9.4"
+activity-compose = "1.11.0"
+compose-bom = "2025.10.00"
+
 
 [libraries]
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity-ktx" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle-runtime-ktx" }
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation-fragment-ktx" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation-fragment-ktx" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
@@ -34,9 +39,18 @@ hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", v
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
 core-test = { group = "androidx.arch.core", name = "core-testing", version.ref = "core-test" }
-constraint = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraint" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 lifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+ui = { group = "androidx.compose.ui", name = "ui" }
+ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+material3 = { group = "androidx.compose.material3", name = "material3" }
+
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }
