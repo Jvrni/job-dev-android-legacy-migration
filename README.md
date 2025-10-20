@@ -1,6 +1,7 @@
 # Cadápio Android
 
-Este repositório é uma base legada (Java + XML) para um desafio técnico de modernização incremental.
+Este é um projeto com o objetivo de migrar o fluxo de listas de produtos para Kotlin, mantendo os layouts em XML.
+Também há versões bonus com Fragments e Compose ou somente Jetpack Compose, com algumas mudanças na arquitetura por exemplo MVI e também alguns modulos (Design System, Navigation e Domain), basta acessar as branchs [enh/menu-fragment-compose](https://github.com/Jvrni/job-dev-android-legacy-migration/tree/enh/menu-fragment-compose) ou [enh/menu-only-compose](https://github.com/Jvrni/job-dev-android-legacy-migration/tree/enh/menu-only-compose)
 
 - App name: Cadápio Android
 - Package: `com.goomer.ps`
@@ -12,31 +13,23 @@ Este repositório é uma base legada (Java + XML) para um desafio técnico de mo
 - Abrir a pasta `cardapio-app/` no Android Studio
 - Sincronizar Gradle
 - Rodar o app no emulador/dispositivo: módulo `app` (Build/Run padrão)
-- Testes: `./gradlew test`
+- Testes unitários **./gradlew test**
+- Rodar ktlint **./gradlew ktlintCheck**
+- Rodar detekt **./gradlew detekt**
 
-## Desafio (o que você deve fazer)
-- Migrar o fluxo da lista de produtos para Kotlin, mantendo os layouts em XML
-- Escolher e implementar uma arquitetura bem definida
-- Adicionar injeção de dependência (Hilt/Koin/Dagger – escolher e justificar)
-- Escrever 2–5 testes unitários relevantes
-- Tratar estados de loading/erro na UI atual sem mudar o layout visual
-- Entregar documentação curta: `ARCHITECTURE.md` e `MIGRATION_PLAN.md`
-- Bônus: CI simples (GitHub Actions), `detekt/ktlint`, `Flow/LiveData`, modularização
+## Tech stack & Open-source libraries
+- Kotlin, Coroutines flow + StateFlow for asynchronous, UnitTests, CI.
 
-## Critérios
-- Arquitetura (clareza de camadas, separação, dependências)
-- Migração incremental e interoperabilidade (Java/XML + Kotlin convivendo)
-- Qualidade e testabilidade (testes úteis, simplicidade, consistência)
-- Resiliência e UX de estados (loading/erro sem alterar layout)
-- Comunicação técnica (documentos e trade-offs)
-- Automação (build/test; CI é bônus)
+- **Jetpack**
+    - View Binding: Um recurso que simplifica a interação com visualizações no seu layout XML.
+    - ViewModel: Gerencia o detentor de dados relacionados à interface do usuário e o ciclo de vida. Permite que os dados sobrevivam a alterações de configuração, como rotações de tela.
+    - Hilt: Para injeção de dependencia.
 
-## Observações
-- Não reescreva o app. Faça o mínimo necessário para tornar o fluxo sustentável e testável
-- Não introduza Compose como dependência central (opcional e isolado apenas como bônus)
-- Não altere o visual dos layouts
+- **Arquitetura**
+    - MVVM (Model - View - ViewModel)
+    - Module Pattern
+    - Repository Pattern
+  
+## Architecture overview
 
-## Entregáveis
-
-- Repositório com código funcional e histórico de commits claro
-- `ARCHITECTURE.md`, `MIGRATION_PLAN.md`, `README.md` com passos de build/run e decisões e plano de migração
+A arquitetura ou o plano de migração você pode ver nos arquivos [ARCHITECTURE.md](https://github.com/Jvrni/job-dev-android-legacy-migration/blob/enh/menu/ARCHITECTURE.md) and [MIGRATION_PLAN.md](https://github.com/Jvrni/job-dev-android-legacy-migration/blob/enh/menu/MIGRATION_PLAN.md)
