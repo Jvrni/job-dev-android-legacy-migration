@@ -1,7 +1,6 @@
 package com.goomer.ps
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.goomer.common.base.UiState
 import com.goomer.data.MenuRepository
 import com.goomer.data.models.Menu
 import com.goomer.ps.feature.menu.list.MenuListViewModel

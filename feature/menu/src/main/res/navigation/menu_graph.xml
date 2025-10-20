@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/menu_graph"
+    app:startDestination="@id/menuListFragment">
+
+    <fragment
+        android:id="@+id/menuListFragment"
+        android:name="com.goomer.menu.list.MenuListFragment" >
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/menuDetailFragment"
+        android:name="com.goomer.menu.details.MenuDetailFragment" >
+
+        <argument
+            android:name="data"
+            app:argType="com.goomer.data.models.Menu" />
+    </fragment>
+</navigation>
