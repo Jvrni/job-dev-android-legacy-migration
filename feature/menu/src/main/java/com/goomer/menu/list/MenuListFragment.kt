@@ -25,25 +25,25 @@ class MenuListFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View = ComposeView(requireContext()).apply {
         setContent {
-            MenuTheme {
-                val viewModel: MenuListViewModel = hiltViewModel()
-                val (state, event, effect) = use(viewModel = viewModel)
+            val viewModel: MenuListViewModel = hiltViewModel()
+            val (state, event, effect) = use(viewModel = viewModel)
 
-                LaunchedEffect(Unit) {
-                    event.invoke(MenuListContract.Event.OnStart)
-                }
+            LaunchedEffect(Unit) {
+                event.invoke(MenuListContract.Event.OnStart)
+            }
 
-                effect.collectInLaunchedEffect { dispatch ->
-                    when (dispatch) {
-                        is MenuListContract.Effect.NavigateToDetail -> {
-                            findNavController().safeNavigate(
-                                com.goomer.menu.R.id.menuDetailFragment,
-                                MenuDetailFragmentArgs(dispatch.menu).toBundle()
-                            )
-                        }
+            effect.collectInLaunchedEffect { dispatch ->
+                when (dispatch) {
+                    is MenuListContract.Effect.NavigateToDetail -> {
+                        findNavController().safeNavigate(
+                            com.goomer.menu.R.id.menuDetailFragment,
+                            MenuDetailFragmentArgs(dispatch.menu).toBundle()
+                        )
                     }
                 }
+            }
 
+            MenuTheme {
                 MenuListScreen(state, event)
             }
         }

@@ -3,4 +3,5 @@
     <color name="md_theme_primary">#6750A4</color>
     <color name="md_theme_onPrimary">#FFFFFF</color>
     <color name="ic_launcher_background">#3DDC84</color>
+    <color name="md_theme_black">#000000</color>
 </resources>

@@ -87,7 +87,7 @@ fun MenuListScreen(state: MenuListContract.State, event: (MenuListContract.Event
                         entity = MenuItemEntity(
                             name = item.name,
                             description = item.description,
-                            price = item.price,
+                            price = stringResource(R.string.price, item.price),
                             imageUrl = item.imageUrl
                         )
                     ) {

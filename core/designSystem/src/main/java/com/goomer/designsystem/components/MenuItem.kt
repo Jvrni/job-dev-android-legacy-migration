@@ -44,7 +44,7 @@ fun MenuItem(
 
             Text(
                 modifier = Modifier.padding(top = Dimens.xxsmall_padding),
-                text = "${entity.price}"
+                text = entity.price
             )
         }
     }
@@ -53,6 +53,6 @@ fun MenuItem(
 data class MenuItemEntity(
     val name: String,
     val description: String,
-    val price: Double,
+    val price: String,
     val imageUrl: String
 )

@@ -53,6 +53,7 @@ android {
 dependencies {
     implementation(project(":data"))
     implementation(project(":core:common"))
+    implementation(project(":core:designSystem"))
     implementation(project(":feature:menu"))
 
     implementation(libs.core.ktx)
