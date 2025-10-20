@@ -1,11 +1,10 @@
-package com.goomer.ps
+package com.goomer.menu
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.goomer.data.MenuRepository
 import com.goomer.data.models.Menu
-import com.goomer.ps.feature.menu.list.MenuListViewModel
-import com.goomer.ps.feature.menu.list.state.MenuListState
-import com.goomer.ps.navigation.MenuNavigator
+import com.goomer.menu.list.MenuListViewModel
+import com.goomer.menu.list.contract.MenuListContract
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
@@ -37,9 +36,8 @@ class MenuListViewModelTest {
     private val repository = mockk<MenuRepository>()
 
     @MockK
-    private val navigator = mockk<MenuNavigator>()
 
-    private val viewModel by lazy { spyk(MenuListViewModel(repository, navigator)) }
+    private val viewModel by lazy { spyk(MenuListViewModel(repository)) }
 
     @Before
     fun setup() {
@@ -47,15 +45,15 @@ class MenuListViewModelTest {
     }
 
     @Test
-    fun `initial state should be Idle`() = runTest {
+    fun `initial state onStart`() = runTest {
         // GIVEN
         coEvery { repository.getList() } returns emptyFlow()
 
         // WHEN
-        viewModel.loadData()
+        viewModel.event(MenuListContract.Event.OnStart)
 
         // THEN
-        assertEquals(UiState.Idle, viewModel.uiState.value)
+        assertEquals(emptyList<Menu>(), viewModel.state.value.list)
     }
 
     @Test
@@ -64,14 +62,11 @@ class MenuListViewModelTest {
         coEvery { repository.getList() } returns flowOf(list)
 
         // WHEN
-        viewModel.loadData()
+        viewModel.event(MenuListContract.Event.OnStart)
         advanceUntilIdle()
 
         // THEN
-        assertEquals(
-            (viewModel.uiState.value as UiState.Success<MenuListState>).data.list.first().name,
-            list[0].name
-        )
+        assertEquals(list.first().name, viewModel.state.value.list.first().name)
     }
 
     @Test
@@ -80,11 +75,10 @@ class MenuListViewModelTest {
         coEvery { repository.getList() } returns flow { throw IOException("Failed to read JSON") }
 
         // WHEN
-        viewModel.loadData()
+        viewModel.event(MenuListContract.Event.OnStart)
         advanceUntilIdle()
-
         // THEN
-        assertEquals(UiState.Error, viewModel.uiState.value)
+        assertEquals(true, viewModel.state.value.showError)
     }
 
     companion object {

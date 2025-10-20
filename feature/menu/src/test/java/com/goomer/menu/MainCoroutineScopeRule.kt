@@ -1,4 +1,4 @@
-package com.goomer.ps
+package com.goomer.menu
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
