@@ -1,6 +1,6 @@
 # MIGRATION_PLAN
 
-Migrar o app legado para Kotlin, adotando **MVVM + Clean simplificado**, **Repository Pattern**, **StateFlow** e **Hilt**, garantindo reatividade, testabilidade e refatoração incremental, sem Domain Layer.
+Migrar o app legado para Kotlin, adotando **MVI + Clean simplificado**, **Repository Pattern**, **StateFlow** e **Hilt**, garantindo reatividade, testabilidade e refatoração incremental, sem Domain Layer.
 
 ---
 
@@ -21,7 +21,8 @@ Migrar o app legado para Kotlin, adotando **MVVM + Clean simplificado**, **Repos
 - Habilitar Kotlin no Gradle.  
 - Configurar **Hilt** para injeção de dependência.  
 - Criar estrutura de pastas baseada em camadas:
-  - `app/presentation` → Activities, ViewModels  
+  - `app` → Activity
+  - `feature` → Fragments, Compose e ViewModels
   - `data` → Repositories e DataSources  
   - `core` → Helpers, utilitários  
 - Manter código legado isolado inicialmente, permitindo **integração incremental**.
@@ -40,11 +41,7 @@ Migrar o app legado para Kotlin, adotando **MVVM + Clean simplificado**, **Repos
 ### Criar ViewModels e Gerenciar Estados
 
 - Criar **ViewModels Kotlin** para cada tela, por exemplo: `MenuListViewModel`.  
-- Usar **StateFlow** para gerenciar estados:  
-  - `Idle`  
-  - `Loading`  
-  - `Success`  
-  - `Error`  
+- Usar **MVI** fluxo de dados unidirecional para gerenciar o estado de UI.  
 - Integrar ViewModels com **Repositories** usando **Flow**.  
 
 ---
@@ -73,7 +70,6 @@ Migrar o app legado para Kotlin, adotando **MVVM + Clean simplificado**, **Repos
 
 ### Refatoração Final
 
-- Gradual substituição de **Activities Java** por Kotlin.  
-- Manter modularização mínima (features dentro do app).  
+- Gradual substituição de **Activities Java** por Fragments com Compose em Kotlin.   
 - Remover código legado e integração completa.
 
