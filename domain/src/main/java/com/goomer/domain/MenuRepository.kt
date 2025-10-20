@@ -1,6 +1,6 @@
-package com.goomer.data
+package com.goomer.domain
 
-import com.goomer.data.models.Menu
+import com.goomer.domain.models.Menu
 import kotlinx.coroutines.flow.Flow
 
 interface MenuRepository {

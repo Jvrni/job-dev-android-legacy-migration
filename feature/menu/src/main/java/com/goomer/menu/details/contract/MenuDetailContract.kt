@@ -1,7 +1,7 @@
 package com.goomer.menu.details.contract
 
 import com.goomer.common.base.UnidirectionalViewModel
-import com.goomer.data.models.Menu
+import com.goomer.domain.models.Menu
 
 interface MenuDetailContract : UnidirectionalViewModel<MenuDetailContract.State, MenuDetailContract.Event, MenuDetailContract.Effect> {
 
