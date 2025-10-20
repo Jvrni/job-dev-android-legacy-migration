@@ -1,4 +1,4 @@
-package com.goomer.data.models
+package com.goomer.domain.models
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

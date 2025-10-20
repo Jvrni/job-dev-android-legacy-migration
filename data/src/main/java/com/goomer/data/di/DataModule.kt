@@ -2,10 +2,10 @@ package com.goomer.data.di
 
 import android.content.Context
 import com.google.gson.Gson
-import com.goomer.data.MenuRepository
 import com.goomer.data.local.JsonReader
 import com.goomer.data.local.MenuLocalDataSource
 import com.goomer.data.repository.MenuRepositoryImpl
+import com.goomer.domain.MenuRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

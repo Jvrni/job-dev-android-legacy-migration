@@ -2,7 +2,7 @@ package com.goomer.menu.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.goomer.data.MenuRepository
+import com.goomer.domain.GetMenuList
 import com.goomer.menu.list.contract.MenuListContract
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -19,7 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MenuListViewModel @Inject constructor(
-    private val repository: MenuRepository,
+    private val getMenuList: GetMenuList
 ) : ViewModel(), MenuListContract {
 
     private val _state = MutableStateFlow(MenuListContract.State())
@@ -39,7 +39,7 @@ class MenuListViewModel @Inject constructor(
 
     private fun onStart() {
         viewModelScope.launch {
-            repository.getList()
+            getMenuList()
                 .catch {
                     _state.update {
                         it.copy(

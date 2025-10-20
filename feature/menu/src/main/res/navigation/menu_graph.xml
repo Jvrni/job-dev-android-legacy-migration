@@ -16,6 +16,6 @@
 
         <argument
             android:name="data"
-            app:argType="com.goomer.data.models.Menu" />
+            app:argType="com.goomer.domain.models.Menu" />
     </fragment>
 </navigation>

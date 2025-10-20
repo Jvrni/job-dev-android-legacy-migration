@@ -1,8 +1,9 @@
 package com.goomer.menu
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.goomer.data.MenuRepository
-import com.goomer.data.models.Menu
+import com.goomer.domain.GetMenuList
+import com.goomer.domain.MenuRepository
+import com.goomer.domain.models.Menu
 import com.goomer.menu.list.MenuListViewModel
 import com.goomer.menu.list.contract.MenuListContract
 import io.mockk.MockKAnnotations
@@ -37,7 +38,7 @@ class MenuListViewModelTest {
 
     @MockK
 
-    private val viewModel by lazy { spyk(MenuListViewModel(repository)) }
+    private val viewModel by lazy { spyk(MenuListViewModel(GetMenuList(repository))) }
 
     @Before
     fun setup() {
