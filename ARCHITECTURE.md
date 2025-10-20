@@ -42,7 +42,7 @@
 
   * Flow permite propagação assíncrona de dados, fácil teste e gerenciamento de estados.
   * Mantém UI responsiva sem bloqueios.
-* **StateFlow** para gerenciamento de estados reativo (`Idle → Loading → Success → Error`).
+* **StateFlow** para gerenciamento de estados reativo.
 
 ---
 
