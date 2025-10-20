@@ -1,7 +1,7 @@
 package com.goomer.data
 
 import com.goomer.data.local.MenuLocalDataSource
-import com.goomer.data.models.Menu
+import com.goomer.data.models.MenuResponse
 import com.goomer.data.repository.MenuRepositoryImpl
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
@@ -49,8 +49,8 @@ class MenuRepositoryImplTest {
     fun `getList should emit menus from localDataSource`() = runTest {
         // GIVEN
         val menus = listOf(
-            Menu(1, "Café", "Café preto", 8.5, ""),
-            Menu(2, "Bolo", "Bolo de chocolate", 12.0, "")
+            MenuResponse(1, "Café", "Café preto", 8.5, ""),
+            MenuResponse(2, "Bolo", "Bolo de chocolate", 12.0, "")
         )
         every { localDataSource.getMenuList() } returns flowOf(menus)
 

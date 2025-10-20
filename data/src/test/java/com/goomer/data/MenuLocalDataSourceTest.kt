@@ -3,7 +3,7 @@ package com.goomer.data
 import com.google.gson.Gson
 import com.goomer.data.local.JsonReader
 import com.goomer.data.local.MenuLocalDataSource
-import com.goomer.data.models.Menu
+import com.goomer.data.models.MenuResponse
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
@@ -39,7 +39,7 @@ class MenuLocalDataSourceTest {
         every { jsonReader.readAsset("menu.json") } returns json
 
         // WHEN
-        val list = mutableListOf<List<Menu>>()
+        val list = mutableListOf<List<MenuResponse>>()
         localDataSource.getMenuList().collect { list.add(it) }
 
         // THEN
