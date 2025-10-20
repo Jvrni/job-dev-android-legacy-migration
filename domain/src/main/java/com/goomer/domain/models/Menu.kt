@@ -1,13 +1,12 @@
 package com.goomer.domain.models
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
-@Parcelize
+@Serializable
 data class Menu(
     val id: Int,
     val name: String,
     val description: String,
     val price: Double,
     val imageUrl: String
-): Parcelable
+)

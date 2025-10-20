@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
     id("kotlin-kapt")
-    id("kotlin-parcelize")
+    alias(libs.plugins.kotlinX.serialization)
 }
 
 android {
@@ -39,6 +39,7 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
+    implementation(libs.kotlinx.serialization.json)
 
     testImplementation(libs.mockk)
     testImplementation(libs.coroutines.test)

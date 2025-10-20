@@ -54,7 +54,6 @@ dependencies {
     implementation(libs.androidx.activity.ktx)
 
     implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.androidx.navigation.fragment.ktx)
 
     implementation(libs.hilt)
     implementation(libs.androidx.hilt.navigation.compose)

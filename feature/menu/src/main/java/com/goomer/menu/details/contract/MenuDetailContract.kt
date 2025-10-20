@@ -8,7 +8,7 @@ interface MenuDetailContract : UnidirectionalViewModel<MenuDetailContract.State,
     data class State(val menu: Menu? = null)
 
     sealed class Event {
-        data class OnStart(val menu: Menu) : Event()
+        data object OnStart : Event()
         data object OnBack : Event()
     }
 

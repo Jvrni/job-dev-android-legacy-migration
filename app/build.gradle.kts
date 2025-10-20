@@ -2,9 +2,9 @@ plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlinX.serialization)
     id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
-    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -55,6 +55,7 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":core:common"))
     implementation(project(":core:designSystem"))
+    implementation(project(":core:navigation"))
     implementation(project(":feature:menu"))
 
     implementation(libs.core.ktx)
@@ -76,7 +77,8 @@ dependencies {
     implementation(libs.material3)
 
     implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
 
     testImplementation(libs.mockk)
     testImplementation(libs.coroutines.test)
