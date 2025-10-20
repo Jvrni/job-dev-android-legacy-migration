@@ -1,24 +1,17 @@
 plugins {
-    alias(libs.plugins.com.android.application)
+    alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
-    id("com.google.dagger.hilt.android")
-    id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.goomer.ps"
+    namespace = "com.goomer.designsystem"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.goomer.ps"
-        minSdk = 25
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables.useSupportLibrary = true
+        minSdk = 24
 
-        multiDexEnabled = true
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -29,51 +22,33 @@ android {
                 "proguard-rules.pro"
             )
         }
-        debug {
-            isMinifyEnabled = false
-        }
     }
-
-    buildFeatures {
-        viewBinding = true
-    }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-
     kotlin {
         jvmToolchain(17)
     }
 }
 
 dependencies {
-    implementation(project(":data"))
-    implementation(project(":core:common"))
-    implementation(project(":feature:menu"))
-
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
+
     implementation(libs.material)
     implementation(libs.appcompat)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.activity.ktx)
 
-    implementation(libs.hilt)
-    kapt(libs.hilt.compiler)
-
     implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
     implementation(libs.ui)
-    implementation(libs.ui.tooling)
     implementation(libs.ui.graphics)
+    implementation(libs.ui.tooling)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
 
-    testImplementation(libs.mockk)
-    testImplementation(libs.coroutines.test)
-    testImplementation(libs.core.test)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

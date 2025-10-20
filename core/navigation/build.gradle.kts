@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.goomer.common"
+    namespace = "com.goomer.navigation"
     compileSdk = 36
 
     defaultConfig {
@@ -27,11 +27,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-
-    buildFeatures {
-        viewBinding = true
-    }
-
     kotlin {
         jvmToolchain(17)
     }
@@ -45,14 +40,8 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.activity.ktx)
-
-    implementation(libs.activity.compose)
-    implementation(platform(libs.compose.bom))
-    implementation(libs.ui)
-    implementation(libs.ui.tooling)
-    implementation(libs.ui.graphics)
-    implementation(libs.ui.tooling.preview)
-    implementation(libs.material3)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

@@ -10,3 +10,7 @@ pluginManagement {
 }
 include(":data")
 include(":core:common")
+include(":feature")
+include(":feature:menu")
+include(":core:designSystem")
+include(":core:navigation")
